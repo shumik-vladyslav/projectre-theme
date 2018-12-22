@@ -1,0 +1,116 @@
+<div class="main-wrap-rules">
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+
+    <mat-form-field class="custom-input-rules">
+      <input matInput placeholder="RuleID" [(ngModel)]="randomID" autocomplete="off" disabled>
+    </mat-form-field>
+    <mat-form-field class="custom-input-rules">
+      <input matInput placeholder="RuleName" [(ngModel)]="ruleName" autocomplete="off">
+    </mat-form-field>
+    <mat-form-field class="custom-input-rules">
+      <input matInput placeholder="Description" [(ngModel)]="description" autocomplete="off">
+    </mat-form-field>
+
+    <button (click)="newButton()" [disabled]="!(ruleName && description)" mat-raised-button>New</button>
+    <button (click)="clearButton()" mat-raised-button>Clear</button>
+  </div>
+  <div fxLayout="row" class="m-t-10">
+    <tree-root #tree (toggleExpanded)="nodeExpanded($event)" [nodes]="nodesTree" [options]="options">
+      <ng-template #treeNodeWrapperTemplate let-node let-index="index">
+        <div class="tree-node">
+          <div fxLayout="row">
+            <div *ngIf="node.children" class="pos-r">
+                <div (contextmenu)="onRightClick($event, node)" *ngIf="!node.data.rightClickEvent">{{node.data.treeActionDropDown}}</div>
+                <div *ngIf="node.data.rightClickEvent" class="drb">
+                  <div class="drb-item" *ngFor="let item of treeActionData" (click)="node.data.rightClickEvent = false; node.data.treeActionDropDown = item">
+                    {{item}}
+                  </div>
+                </div>
+            </div>
+            <tree-node-expander [node]="node"></tree-node-expander>
+            <div fxLayout="row">
+              <span *ngIf="!node.isExpanded && node.children">Description</span>
+              <mat-form-field *ngIf="node.isExpanded && node.id == 1" class="tree-element custom-seletc-tree" id="custom-seletc-tree">
+                <mat-select placeholder="LHS">
+                  <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field *ngIf="node.isExpanded && node.id == 1" class="tree-element custom-seletc-tree" id="custom-seletc-tree">
+                <mat-select placeholder="Operation">
+                  <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field *ngIf="node.isExpanded && node.id == 1" class="tree-element custom-seletc-tree" id="custom-seletc-tree">
+                <mat-select placeholder="RHS">
+                  <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field *ngIf="node.isExpanded && node.children.length == 1 && node.id != 4" class="tree-element custom-seletc-tree" id="custom-seletc-tree">
+                <mat-select placeholder="Client">
+                  <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field *ngIf="node.isExpanded && node.children.length == 1 && node.id != 4" class="tree-element custom-seletc-tree" id="custom-seletc-tree">
+                <mat-select placeholder="State">
+                  <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field *ngIf="node.isExpanded && node.id == 4" class="tree-element custom-seletc-tree" id="custom-seletc-tree">
+                <mat-select placeholder="Client rule">
+                  <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <tree-node-content [node]="node" [index]="index"></tree-node-content>
+        </div>
+      </ng-template>
+    </tree-root>
+  </div>
+  <div>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            RuleId
+          </td>
+          <td>
+            RuleName
+          </td>
+          <td>
+            Description
+          </td>
+        </tr>
+        <tr *ngFor="let item of rules">
+          <td>
+            {{item.ruleID}}
+          </td>
+          <td>
+            {{item.ruleName}}
+          </td>
+          <td>
+            {{item.description}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+.footer-wrapper {
+  background-color: #000000;
+}
+.footer-wrapper .top {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.footer-wrapper .top span {
+  margin: 0 20px;
+  color: white;
+}
+.footer-wrapper .wrapper-middle {
+  color: #414C55;
+  background-color: #111B25;
+  border-bottom: 1px solid grey;
+  padding: 15px;
+}
+.footer-wrapper .wrapper-middle span {
+  margin: 0 20px;
+}
+.footer-wrapper .wrapper-bot {
+  color: #414C55;
+  background-color: #111B25;
+}
+.footer-wrapper .wrapper-bot p {
+  padding: 15px;
+  margin-bottom: 0;
+}

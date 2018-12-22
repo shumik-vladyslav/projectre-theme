@@ -1,0 +1,195 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~angular-tree-component/dist/angular-tree-component.css';
+
+.nav-tabs-navigation{
+    text-align: left !important;
+}
+.nav-tabs-wrapper{
+    margin-left: 0;
+    margin-right: 0;
+}
+.m-r-10{
+    margin-right: 10px !important;
+}
+.c-p{
+    cursor: pointer;
+}
+body {
+    margin: 0;
+  }
+  
+  html, body {
+    height: 100%;
+    margin: 0;
+    font-family: "Dosis", sans-serif;
+  }
+  
+  .full-height-content {
+    min-height: calc(100vh - 147px);
+  }
+  
+  .ai-c {
+    align-items: center;
+  }
+  
+  .jc-b {
+    justify-content: space-between;
+  }
+  
+  table > tbody > tr > td {
+    max-width: 200px;
+    word-break: break-all;
+  }
+  
+  .custome-tab > mat-tab-header > div.mat-tab-label-container > div > mat-ink-bar {
+    display: none;
+  }
+  
+  .custome-tab > mat-tab-header > div.mat-tab-label-container > div > div > div.mat-tab-label.mat-ripple.mat-tab-label-active {
+    border-right: 3px solid #3f51b5;
+    border-left: 3px solid #3f51b5;
+    opacity: 1;
+    position: relative;
+    bottom: -3px;
+    padding-bottom: 3px;
+    background: white;
+  }
+  
+  .custome-tab > mat-tab-header > div.mat-tab-label-container > div > div > div.mat-tab-label.mat-ripple.mat-tab-label-active:first-child {
+    border-left: none;
+  }
+  
+  .custome-tab > mat-tab-header {
+    border-bottom: 3px solid #3f51b5;
+    margin-top: -4px;
+  }
+  
+  .custome-tab > mat-tab-header > div.mat-tab-label-container {
+    overflow: visible;
+  }
+  
+  .custome-tab > mat-tab-header {
+    overflow: visible;
+  }
+  
+  #sub-tabs > mat-tab-group > div {
+    width: 100%;
+  }
+  
+  #sub-tabs > mat-tab-group > mat-tab-header > div.mat-tab-label-container > div > div {
+    flex-flow: column;
+  }
+  
+  #sub-tabs > mat-tab-group > mat-tab-header > div.mat-tab-label-container > div > div > div {
+    justify-content: flex-start;
+  }
+  
+  #sub-tabs > mat-tab-group > mat-tab-header > div.mat-tab-label-container > div > mat-ink-bar {
+    display: none;
+  }
+  
+  #sub-tabs > mat-tab-group > mat-tab-header > div.mat-tab-label-container > div > div > div.mat-tab-label.mat-ripple.mat-tab-label-active {
+    border-bottom: 3px solid #3f51b5;
+    opacity: 1;
+    border-top: 3px solid #3f51b5;
+    width: calc(100% + 3px);
+    background: white;
+  }
+  #sub-tabs > mat-tab-group > mat-tab-header > div.mat-tab-label-container > div > div > div.mat-tab-label.mat-ripple.mat-tab-label-active:first-child {
+    border-top: 0;
+  }
+  
+  #sub-tabs > mat-tab-group > mat-tab-header > div.mat-tab-label-container {
+    border-right: 3px solid #3f51b5;
+    overflow: visible;
+  }
+  
+  #sub-tabs > mat-tab-group > mat-tab-header {
+    border-bottom: none;
+  }
+  
+  #custome-tab > div > mat-tab-body > div > div {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  
+  #custome-tab > div > mat-tab-body.mat-tab-body > div > div > div {
+    width: 100%;
+    min-height: calc(100vh - 194px);
+    padding-top: 0;
+  }
+  
+  #custome-tab > div > mat-tab-body.mat-tab-body > div > div > div {
+    width: 100%;
+  }
+  
+  #sub-tabs {
+    height: 100%;
+  }
+  
+  #sub-tabs > mat-tab-group {
+    height: 100%;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .custome-tab > mat-tab-header > div.mat-tab-label-container > div > div > div.mat-tab-label.mat-ripple {
+    display: flex;
+    justify-content: space-between;
+    background: #ffb850;
+    height: 48px;
+    position: relative;
+    bottom: -3px;
+    opacity: 1;
+  }
+  
+  .close-tab-icon {
+    transition: all 0.2s;
+    color: #737373;
+  }
+  .close-tab-icon:hover {
+    color: black;
+  }
+  
+  .pos-r {
+    position: relative;
+  }
+  
+  .custome-tab > mat-tab-header > div.mat-tab-label-container > div > div > div.mat-tab-label.mat-tab-label-active {
+    background-image: linear-gradient(#54340b 0%, #c57915 62%, #c27716 1%) !important;
+    color: white;
+  }
+  
+  .custome-tab > mat-tab-header > div.mat-tab-label-container > div > div > div.mat-tab-label.mat-ripple.ng-star-inserted.mat-tab-label-active:not(:first-child) > div > div > i {
+    color: white;
+  }
+  
+  .custom-seletc-tree {
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+    max-height: 30px;
+    min-height: 30px;
+    line-height: 18px;
+  }
+  .custom-seletc-tree .mat-form-field-wrapper {
+    padding-bottom: 0;
+  }
+  .custom-seletc-tree .mat-form-field-wrapper .mat-form-field-flex {
+    position: relative;
+    top: -20px;
+  }
+  
+  tree-viewport {
+    overflow: unset !important;
+  }
+  
+  .m-t-10 {
+    margin-top: 10px;
+  }
+  .full-width {
+    width: 100%;
+  }
+  

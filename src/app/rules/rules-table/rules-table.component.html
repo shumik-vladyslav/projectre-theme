@@ -1,0 +1,66 @@
+<div id="rules-table">
+  <div *ngIf="data">
+    <!-- <div class="tool-wrap">
+      <div class="z-i-100">
+        <button [disabled]="!(data | searchRules:save:searchText).length==0" (click)="add(key)" mat-mini-fab color="primary">
+          <i class="material-icons">
+            add
+          </i>
+        </button>
+        <button (click)="clear()" mat-button>
+          Clear
+        </button>
+      </div>
+    </div> -->
+    <table class="table" *ngIf="reload">
+      <tbody>
+        <tr>
+          <td *ngFor="let k of objectKeys(data[0]); let i = index">
+                
+            <div class="form-group">
+              <input [(ngModel)]="save[k]" autocomplete="off" (keyup)="filterData($event, key, k)" class="form-control" placeholder="{{k}}" type="email">
+            </div>
+            <!-- <mat-form-field class="example-full-width">
+              <input [(ngModel)]="save[k]" (keyup)="filterData($event, key, k)" matInput placeholder="{{k}}"
+                autocomplete="off">
+            </mat-form-field> -->
+
+          </td>
+          <td colspan="2" class="text-center">
+
+            <div class="z-i-100">
+              <button [disabled]="!(data | searchRules:save:searchText).length==0" (click)="add(key)" class="m-r-10 c-p btn btn-primary btn-round btn-icon">
+                <i class="nc-icon nc-simple-add"></i>
+              </button>
+              <button class="btn btn-primary btn-link" (click)="clear()">
+                Clear
+              </button>
+            </div>
+
+          </td>
+        </tr>
+        <!-- <tr>
+          <th *ngFor="let k of objectKeys(data[0])">{{k}}</th>
+        </tr> -->
+        <tr *ngFor="let item of data | searchRules:save:searchText;let i = index" [ngClass]="{'active': (i === 0 && firstRow)}">
+          <td *ngFor="let k of objectKeys(data[0])">
+            <span *ngIf="!editFlag[key+i]">
+              {{item[k]}}
+            </span>
+            <span *ngIf="editFlag[key+i]">
+              <mat-form-field class="example-full-width">
+                <input [(ngModel)]="editRowObj[k+i]" matInput autocomplete="off">
+              </mat-form-field>
+            </span>
+          </td>
+          <th>
+            <button mat-raised-button class="btn btn-warning btn-sm" *ngIf="!editButtonName[key+i]" (click)="editRow(key, i, item, true)">edit</button>
+            <button mat-raised-button class="btn btn-success btn-sm" *ngIf="editButtonName[key+i]" (click)="editRow(key, i, item, false)">save</button>
+          </th>
+          <th><button mat-raised-button class="btn btn-info btn-sm" (click)="clickCreateNewTab(item)">Do It!</button></th>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>

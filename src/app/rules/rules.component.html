@@ -1,0 +1,87 @@
+<app-header-rules></app-header-rules>
+
+<div *ngIf="data" class="full-height-content">
+
+  <div style="min-height: calc(100vh - 169px)">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+              <ul id="tabs" class="nav nav-tabs" role="tablist">
+                <li *ngFor="let key of objectKeys(data); let i = index;" (click)="dataKeyEvent(key)" class="nav-item">
+                  <a class="nav-link c-p" [ngClass]="{'active': dataKey === key}" data-toggle="tab" role="tab"
+                    aria-expanded="false">
+                    {{key.toUpperCase()}}
+                    <span *ngIf="data[key].type === 'add'" (click)="closeTabButton(i)"><i class="nc-icon nc-simple-remove"></i></span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div id="my-tab-content" class="tab-content text-center">
+
+            <div *ngFor="let key of objectKeys(data); let i = index">
+              <div *ngIf="dataKey === key" class="tab-pane active" role="tabpanel" aria-expanded="true">
+
+                <div class="vertical-tab-custom" id="vertical-tab-custom">
+                  <app-rules-table *ngIf="data[key].type === 'default'" [source]="data" [key]="key"></app-rules-table>
+                  <!-- <div class="space-label" *ngIf="data[key].type === 'add'" fxLayoutAlign="center center">
+                    Detail information for client {{key.split('(')[0]}}
+                  </div> -->
+                  <div *ngIf="data[key].type === 'add'">
+
+                    <div class="nav-tabs-navigation">
+                      <div class="nav-tabs-wrapper">
+                        <ul id="tabs" class="nav nav-tabs" role="tablist">
+                          <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#templates" role="tab" aria-expanded="true">Templates</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#folders" role="tab" aria-expanded="false">Folders</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#rules" role="tab" aria-expanded="false">Rules</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#configData" role="tab" aria-expanded="false">Config
+                              Data</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#rules2" role="tab" aria-expanded="false">Rules
+                              2</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div id="my-tab-content" class="tab-content text-center full-width">
+                      <div class="tab-pane active" id="templates" role="tabpanel" aria-expanded="true">
+                        <app-rules-table [source]="data" [key]="key"></app-rules-table>
+                      </div>
+                      <div class="tab-pane" id="folders" role="tabpanel" aria-expanded="false">
+                        <p>Here is your folders</p>
+                      </div>
+                      <div class="tab-pane" id="rules" role="tabpanel" aria-expanded="false">
+                        <app-rules-table-tree></app-rules-table-tree>
+                      </div>
+                      <div class="tab-pane" id="configData" role="tabpanel" aria-expanded="false">
+                        <p>Here are your Config Data.</p>
+                      </div>
+                      <div class="tab-pane" id="rules2" role="tabpanel" aria-expanded="false">
+                        <app-rules-table-tree2></app-rules-table-tree2>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-footer-rules></app-footer-rules>
